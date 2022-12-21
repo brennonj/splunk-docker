@@ -1,27 +1,11 @@
-# must accept EULA the first time that the image is started
-# docker run splunk/enterprise:7.0.3
-# Options on how to review the EULA and accept it: 
-# 1. docker run -it splunk/splunk:latest
-# 2. Add the following environment variable: SPLUNK_START_ARGS=--accept-license
-# docker run -e "SPLUNK_START_ARGS=--accept-license" splunk/splunk 
-
-# Support for Docker Compose v3, https://docs.docker.com/compose/overview/
-version: '3'
-
-volumes:
-  opt-splunk-etc:
-  opt-splunk-var:
+version: "3.6"
 
 services:
-  splunkenterprise:
-    #build: .
-    hostname: splunkDev
-    image: splunk/splunk:latest
+  SplunkDev:
+    image: ${SPLUNK_IMAGE:-splunk/splunk:latest}
+    container_name: SplunkDev
     environment:
-      SPLUNK_START_ARGS: --accept-license
-      SPLUNK_PASSWORD: 5tm6zvuZ
-    volumes:
-      - opt-splunk-etc:/opt/splunk/etc
-      - opt-splunk-var:/opt/splunk/var
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_PASSWORD=changeme
     ports:
-      - "8000:8000"
+      - 8000:8000
