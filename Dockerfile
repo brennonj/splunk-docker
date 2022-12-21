@@ -1,7 +1,7 @@
 FROM debian:jessie
 
 ENV SPLUNK_PRODUCT splunk
-ENV SPLUNK_VERSION 7.0.3
+ENV SPLUNK_VERSION latest
 ENV SPLUNK_BUILD fa31da744b51
 ENV SPLUNK_FILENAME splunk-${SPLUNK_VERSION}-${SPLUNK_BUILD}-Linux-x86_64.tgz
 
@@ -48,7 +48,7 @@ RUN chmod +x /sbin/entrypoint.sh
 #COPY ./Splunk_Enterprise_Q3FY17.lic /var/opt/splunk/etc/licenses/download-trial/Splunk_Enterprise_Q3FY17.lic
 
 # Ports Splunk Web, Splunk Daemon, KVStore, Splunk Indexing Port, Network Input, HTTP Event Collector
-EXPOSE 8000/tcp 8089/tcp 8191/tcp 9997/tcp 1514 8088/tcp
+EXPOSE 8000/tcp
 
 WORKDIR /opt/splunk
 
