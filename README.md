@@ -5,5 +5,6 @@ $ docker compose up -d
 ```
 
 Build Credentials:
-    username: admin
-    password: changeme
+    
+username: admin
+password: changeme
