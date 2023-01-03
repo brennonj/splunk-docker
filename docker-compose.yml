@@ -3,6 +3,7 @@ version: "3.6"
 services:
   SplunkDev:
     image: ${SPLUNK_IMAGE:-splunk/splunk:latest}
+    platform: linux/amd64
     container_name: SplunkDev
     environment:
       - SPLUNK_START_ARGS=--accept-license
